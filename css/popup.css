@@ -1,0 +1,249 @@
+/* css/popup.css */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  width: 400px;
+  padding: 0;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 新しいタブで開かれた場合のスタイル */
+html.is-tab body {
+  width: auto;
+  min-width: initial;
+}
+html.is-tab .container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 5px;
+}
+/* タブで開かれたときのタブスタイル調整 (任意) */
+html.is-tab .tab-nav {
+    /* 例えば、タブ下線を少し太くするなど */
+    /* border-bottom-width: 2px; */
+}
+
+h2 { /* セクション見出し */
+    font-size: 1.1em;
+    margin-top: 0; /* 各タブペイン内の最初の要素なので */
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+}
+
+.section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* セクション間の区切り */
+}
+/* 罫線なしクラス */
+.section.no-border {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+/* 各タブペインの最後のセクションは下の罫線不要 */
+.tab-pane > .section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1em; /* bodyと同じ14px */
+  box-sizing: border-box;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-bottom: 8px; /* 下の要素との間にスペース */
+}
+#keywords {
+    min-height: 120px;
+    /* rows は HTML 側で指定 */
+}
+#siteSettingsJson {
+    min-height: 150px;
+    font-family: monospace;
+    font-size: 0.9em;
+    /* rows は HTML 側で指定 */
+}
+
+/* --- タブスタイル --- */
+.tab-nav {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px; /* タブコンテンツとのスペース */
+}
+
+.tab-button {
+  padding: 8px 12px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1em; /* body と同じ */
+  color: #555;
+  border-bottom: 3px solid transparent; /* アクティブ表示用のスペース確保 */
+  margin-bottom: -1px; /* 下線と重なるように */
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  white-space: nowrap; /* タブ名が折り返さないように */
+}
+
+.tab-button:hover {
+  color: #007bff;
+}
+
+/* アクティブなタブボタン */
+.tab-button.active {
+  color: #007bff;
+  font-weight: 600;
+  border-bottom-color: #007bff; /* アクティブなタブの下線 */
+}
+
+.tab-content {
+  /* 特にスタイル不要 */
+}
+
+/* タブペイン (コンテンツエリア) */
+.tab-pane {
+  display: none; /* デフォルトで非表示 */
+}
+
+/* アクティブなタブペイン */
+.tab-pane.active {
+  display: block; /* activeクラスを持つタブのみ表示 */
+}
+/* --- タブスタイルここまで --- */
+
+/* ボタン群 */
+.button-group {
+  margin-top: 10px; /* 上の要素とのマージン */
+  display: flex;
+  gap: 8px; /* ボタン間のスペース */
+}
+
+/* キーワードタブのボタン配置 */
+.button-group.keyword-buttons {
+    justify-content: flex-start; /* 左寄せ */
+}
+
+/* 高度な設定タブのボタン配置 */
+.button-group.advanced-buttons {
+    justify-content: space-between; /* 左右に配置 */
+}
+/* 高度な設定タブの「別タブで開く」ボタンのスタイル */
+.button-group.advanced-buttons #openInTabButton {
+    background-color: #17a2b8;
+}
+.button-group.advanced-buttons #openInTabButton:hover {
+    background-color: #117a8b;
+}
+
+
+/* 個々のボタンの基本スタイル */
+button {
+  padding: 6px 10px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9em; /* bodyより少し小さく */
+  transition: background-color 0.2s ease, filter 0.2s ease;
+  white-space: nowrap;
+  flex-grow: 0; /* ボタンが必要以上に伸びないように */
+  text-align: center;
+}
+/* ボタンホバー時の効果 */
+button:not(:disabled):hover {
+     filter: brightness(110%);
+}
+/* 無効状態のボタンスタイル */
+button:disabled {
+  background-color: #ccc !important; /* importantで他の色指定を上書き */
+  color: #888;
+  cursor: not-allowed;
+  filter: none; /* ホバー効果などを無効化 */
+}
+
+/* 各ボタンの色 */
+#saveButton, #saveAdvancedButton { background-color: #007bff; } /* 保存ボタン */
+#sortButton { background-color: #6c757d; } /* ソートボタン */
+/* #openInTabButton は上で指定済み */
+
+
+/* オプションセクション (キーワードタブ内) */
+.options-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 15px; /* 縦横の隙間 */
+    align-items: center;
+    margin-top: 15px; /* 上のセクションとのマージン */
+    /* no-border クラスで下の罫線は消えている */
+}
+.options-section .option-item {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.options-section label {
+    margin-left: 4px;
+    cursor: pointer;
+    color: #333;
+    font-size: 1em; /* bodyと同じ */
+    white-space: nowrap;
+}
+.options-section input[type="checkbox"] {
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+
+/* 高度な設定セクション (advanced-section クラスは残っている) */
+.advanced-section {
+    /* 特に固有のスタイルは不要 */
+}
+
+
+/* ステータスメッセージ表示領域 */
+.status-message-area {
+    margin-top: 15px; /* 上のコンテンツとのマージン */
+    padding: 8px;
+    font-size: 0.9em;
+    border-radius: 3px;
+    text-align: center;
+    min-height: 1.4em; /* 高さを確保 */
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+/* メッセージ表示用 span */
+.status-message-area span {
+    display: inline-block;
+    vertical-align: middle;
+}
+/* メッセージタイプに応じたスタイル */
+.status-message-area.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+.status-message-area.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+.status-message-area.info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }

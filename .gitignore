@@ -1,0 +1,12 @@
+*.xpi
+*.zip
+*.pem
+*.crx
+
+*.txt
+*.sh
+
+manifest.json
+
+dist/
+node_modules/

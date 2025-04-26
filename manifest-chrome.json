@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "News Filter",
+  "version": "version",
+  "description": "Hides elements on specified sites based on keywords and CSS selectors.",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "unlimitedStorage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "js/default_settings.js",
+        "js/normalize.js",
+        "js/aho_corasick.js",
+        "js/content.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "19": "icons/icon-19.png",
+      "32": "icons/icon-48.png",
+      "48": "icons/icon-48.png"
+    },
+    "default_title": "News Filter"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "options_page": "popup.html"
+}

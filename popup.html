@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Filter Settings</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- タブナビゲーション -->
+    <div class="tab-nav">
+      <button class="tab-button active" data-tab="keywordsTab">キーワード</button>
+      <button class="tab-button" data-tab="advancedTab">高度な設定</button>
+    </div>
+
+    <!-- タブコンテンツ -->
+    <div class="tab-content">
+
+      <!-- キーワード設定タブ -->
+      <div id="keywordsTab" class="tab-pane active">
+        <div class="section keywords-section">
+          <h2>ブロックするキーワード</h2>
+          <p class="description">
+            非表示にしたい記事に含まれるキーワードを改行区切りで入力してください。
+            保存時に正規化されます。
+          </p>
+          <textarea id="keywords" rows="10"></textarea> <!-- rows調整 -->
+          <div class="button-group keyword-buttons">
+            <button id="saveButton">保存して反映</button>
+            <button id="sortButton">ソート(並び替え)</button>
+          </div>
+        </div>
+
+        <div class="section options-section no-border">
+          <div class="option-item">
+              <input type="checkbox" id="caseInsensitiveToggle">
+              <label for="caseInsensitiveToggle">大文字/小文字を無視する</label>
+          </div>
+          <div class="option-item">
+              <input type="checkbox" id="contextMenuToggle">
+              <label for="contextMenuToggle">右クリックメニューに追加</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 高度な設定タブ -->
+      <div id="advancedTab" class="tab-pane">
+        <div class="section advanced-section">
+          <h2>サイト別設定 (JSON)</h2>
+          <p class="description">
+              対象サイトのドメインとCSSセレクターを指定します。
+              キーワードは全てのサイトで共通です。
+          </p>
+          <textarea id="siteSettingsJson" rows="15"></textarea>
+          <!-- 保存ボタンはこちらにも配置（どちらのタブでも保存できるように） -->
+           <div class="button-group advanced-buttons">
+              <button id="saveAdvancedButton">設定を保存</button>
+              <button id="openInTabButton">新しいタブで設定を開く</button>
+           </div>
+        </div>
+      </div>
+
+    </div> <!-- .tab-content -->
+
+     <!-- ステータスメッセージ表示領域 (タブの外に配置) -->
+     <div id="status" class="status-message-area">
+       <span id="statusText"></span>
+     </div>
+
+  </div> <!-- .container -->
+
+  <!-- スクリプト読み込み -->
+  <script src="js/default_settings.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>
