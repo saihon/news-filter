@@ -19,8 +19,8 @@ News Filter は、指定したウェブサイト（ニュースサイトなど�
 
 ### 各ストアから（準備中）
 
+*   [Firefox Add-ons (AMO)](https://addons.mozilla.org/ja/firefox/addon/newsfilter/)
 *   [Chromeウェブストア]() (リンク準備中)
-*   [Firefox Add-ons (AMO)]() (リンク準備中)
 
 ### ソースコードから（開発者向け）
 
