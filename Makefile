@@ -13,7 +13,7 @@
 EXTENSION_NAME = news-filter
 
 # ★★★ 拡張機能バージョン番号はここで一元管理するので、リリース時にここを編集する ★★★
-VERSION := 1.1.3
+VERSION := 1.2.0
 
 # 出力ディレクトリ
 DIST_DIR = dist
